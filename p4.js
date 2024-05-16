@@ -2,18 +2,24 @@
 
 // P4
 
-function sumGP(a, r, n) {
-
-    if (r === 1) {
-      return a * n;
-    } else {
-      const totalTerms = n;
-      const firstTerm = a;
-      const lastTerm = a * Math.pow(r, n - 1);
-      const sum = (firstTerm * (1 - Math.pow(r, n))) / (1 - r);
-      return sum;
-    }
+function somaProgGeo (priTer, razao, numTer) {
+  if (numTer <= 0) {
+      throw new Error ('O número de termos deve ser positivo');
   }
-  const somaPG = sumGP(2, 3, 4);
-  console.log("Soma da PG:", somaPG); 
+
+  if (razao === 1) {
+      return priTer*numTer;
+  }
+
+  const soma = priTer *(1 - Math.pow(razao, numTer)) / (1 - razao);
+
+  return soma;
+}
+
+let priTer = 4;
+let razao = 13;
+let numTer = 51;
+
+const soma = somaProgGeo(priTer, razao, numTer);
+console.log(soma);
   
